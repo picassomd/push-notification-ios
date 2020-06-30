@@ -78,6 +78,7 @@ class PushNotificationIOS {
   _remoteNotificationCompleteCallbackCalled: boolean;
   _threadID: string;
   _fireDate: string | Date;
+  _action: string;
 
   static FetchResult: FetchResult = {
     NewData: 'UIBackgroundFetchResultNewData',
@@ -376,6 +377,7 @@ class PushNotificationIOS {
     if (this._isRemote) {
       this._notificationId = nativeNotif.notificationId;
     }
+    this._action = nativeNotif.action;
 
     if (nativeNotif.remote) {
       // Extract data from Apple's `aps` dict as defined:
@@ -500,6 +502,10 @@ class PushNotificationIOS {
    */
   getThreadID(): ?string {
     return this._threadID;
+  }
+
+  getAction(): ?string {
+    return this._action;
   }
 }
 
