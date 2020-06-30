@@ -129,7 +129,7 @@ static NSDictionary *RCTFormatUNNotification(UNNotification *notification)
 
 API_AVAILABLE(ios(10.0))
 static NSDictionary *RCTFormatUNNotificationResponse(UNNotificationResponse *response) {
-  NSMutableDictionary *notification = [RCTFormatUNNotification(response.notfication) mutableCopy];
+  NSMutableDictionary *notification = [RCTFormatUNNotification(response.notification) mutableCopy];
   
   notification[@"action"] = RCTNullIfNil(response.actionIdentifier);
   return notification;
